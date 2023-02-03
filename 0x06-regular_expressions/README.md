@@ -1,32 +1,21 @@
-# Shell Loops, Conditions,
-![](https://phoenixnap.com/kb/wp-content/uploads/2021/12/individual.sh-for-loop-script.png)
+# Regular expression
 
-## Learning objectives
+Project done during Full Stack Software Engineering studies at Alx Africa. It aims to learn about how to build a regular expression.
 
-- How to create SSH keys
-- What is the advantage of using `#!/usr/bin/env` bash over `#!/bin/bash`
-- How to use `while`, `until` and `for` loops
-- How to use `if`, `else`, `elif` and case condition statements
-- How to use the `cut` command
-- What are files and other comparison operators, and how to use them
+## Technologies
+- Scripts written in Bash 5.0.17(1)
+- Tested on Ubuntu 20.04 LTS
 
-## Requirements
+## Files
 
-- Allowed editors: `vi`, `vim`, `emacs`
-- All your files will be interpreted on `Ubuntu 20.04 LTS`
-- All your files should end with a new line
-- A README.md file, at the root of the folder of the project, is mandatory
-- All your Bash script files must be executable
-- You are not allowed to use `awk`
-- Your Bash script must pass `Shellcheck` (version 0.7.0) without any error
-- The first line of all your Bash scripts should be exactly `#!/usr/bin/env bash`
-- The second line of all your Bash scripts should be a comment explaining what the script doing
-
-## Concepts
-
-- `env`
-- `cut`
-- `for`
-- `while`
-- `until`
-- `if`
+Filename | Description
+---|---
+`0-simply_match_holberton.rb` | A regular expression that matches School
+`1-repetition_token_0.rb` | A regular expression that matches hbttn
+`2-repetition_token_1.rb` | A regular expression that matches htn and hbtn
+`3-repetition_token_2.rb` | A regular expression that matches hbtn, where the letter t can be replied
+`4-repetition_token_3.rb` | A regular expression that matches hbtn with or without t
+`5-beginning_and_end.rb` | A regular expression that matches with a word that starts with h and ends with n
+`6-phone_number.rb` | A regular expression that match with 10 digit phone number
+`7-OMG_WHY_ARE_YOU_SHOUTING.rb` | A regular expression that only matches capital letters
+`100-textme.rb` | Filters information of a log file
