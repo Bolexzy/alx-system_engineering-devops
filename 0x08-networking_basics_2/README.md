@@ -1,6 +1,6 @@
-# Networking basics
+# Networking basics 1
 
-Project done during Full Stack Software Engineering studies at Alx Africa. It aims to learn about what is an OSI model, LAN, WAN, IP address, localhost, subnet and TCP/UDP.
+Project done during Full Stack Software Engineering studies at Alx Africa. It aims to learn about what is  localhost/127.0.0.1, what is 0.0.0.0, what is /etc/hosts and how to display the machine's active network interfaces.
 
 ## Technologies
 - Scripts written in Bash 5.0.17(1)
@@ -10,9 +10,6 @@ Project done during Full Stack Software Engineering studies at Alx Africa. It ai
 
 Filename | Description
 ---|---
-`0-OSI_model` | Answers of two questions related with OSI model
-`1-types_of_network` | Answers of three questions related with WAN and LAN
-`2-MAC_and_IP_address` | Answers of two questions related with MAC and IP address
-`3-UDP_and_TCP`	| Answers of three questions related with TCP and UDP
-`4-TCP_and_UDP_ports` | Bash script that displays listening ports that only shows listening sockets
-`5-is_the_host_on_the_network` | Bash script that pings an IP address passed as an argument
+`0-change_your_home_IP` | Bash script that configures an Ubuntu server
+`3-show_attached_IPs` | Bash script that displays all active IPv4 IPs on the machine
+`4-port_listening_on_localhost` | Bash script that listens on port 98 on localhost
