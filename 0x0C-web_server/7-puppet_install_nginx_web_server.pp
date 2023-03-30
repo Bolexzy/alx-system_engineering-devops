@@ -6,23 +6,27 @@
 
 package { 'nginx':
     ensure   => 'present',
+    provider => 'apt',
 }
 
-exec {'install':
+exec { 'install':
     command  => 'sudo apt-get -y update ; sudo apt-get -y install nginx',
     provider => shell,
 }
 
-exec {'html':
-    provider => shell,
-    command => 'echo "Hello World!" | sudo tee /var/www/html/index.html',
+file { '/var/www/html/index.html':
+    ensure  => file,
+    content => 'Hello World!',
 }
 
-exec {'redirect':
-    command => 'sed -i "s|server_name _;|${new_string}|" /etc/nginx/sites-available/default',
+file_line { 'redirect /redirect_me':
+    ensure => present,
+    path   => '/etc/nginx/sites-available/default',
+    match  => 'server_name _;',
+    line   => 'server_name _;\n\n\tlocation /redirect_me {\n\t\treturn 301 https://bolexzy.hashnode.dev/;\n\t}\n',
 }
 
 exec {'run':
-  command  => 'sudo service nginx restart',
-  provider => shell,
+    command  => 'sudo service nginx restart',
+    provider => shell,
 }
