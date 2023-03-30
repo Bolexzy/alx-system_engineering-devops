@@ -5,7 +5,7 @@
 #The redirection must be a “301 Moved Permanently”
 
 package { 'nginx':
-    ensure   => 'present',
+    ensure   => 'installed',
     provider => 'apt',
 }
 
@@ -26,7 +26,8 @@ file_line { 'redirect /redirect_me':
     line   => 'server_name _;\n\n\tlocation /redirect_me {\n\t\treturn 301 https://bolexzy.hashnode.dev/;\n\t}\n',
 }
 
-exec {'run':
-    command  => 'sudo service nginx restart',
-    provider => shell,
+service {'nginx':
+    ensure => running,
+    enable => true,
 }
+
