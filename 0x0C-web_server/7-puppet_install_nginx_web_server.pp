@@ -23,11 +23,15 @@ file_line { 'redirect /redirect_me':
     ensure => present,
     path   => '/etc/nginx/sites-available/default',
     match  => 'server_name _;',
-    line   => 'server_name _;\n\n\tlocation /redirect_me {\n\t\treturn 301 https://bolexzy.hashnode.dev/;\n\t}\n',
+    line   => [
+    'server_name _;',
+    'location /redirect_me {',
+    "return 301 'https':#bolexzy.hashnode.dev/;",
+    '}',
+  ],
 }
 
 service {'nginx':
     ensure => running,
     enable => true,
 }
-
