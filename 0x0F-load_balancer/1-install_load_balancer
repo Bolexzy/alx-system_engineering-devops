@@ -13,7 +13,7 @@ echo "
 
 frontend webapp
         bind *:80
-        mode http
+        mode tcp
         default_backend webapp_servers
 
 backend webapp_servers
