@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+#  Configures an Nginx server to listen on port 80.
+
+# Backup the default configuration file
+cp /etc/nginx/sites-available/default /etc/nginx/sites-available/default.bak
+
+sed -i "s/listen 8080 default_server;/listen 80 default_server;/" /etc/nginx/sites-enabled/default
+sed -i "s/listen \[::\]:8080 default_server ipv6only=on;/listen \[::\]:80 default_server;/" /etc/nginx/sites-enabled/default
+
+# Enable the default configuration file
+ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+
+# Restart Nginx
+service nginx restart
