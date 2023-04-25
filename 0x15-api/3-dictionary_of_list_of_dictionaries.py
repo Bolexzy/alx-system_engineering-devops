@@ -23,5 +23,6 @@ if __name__ == "__main__":
                 "username": u.get('username'),
                 "task": t.get('title'),
                 "completed": t.get('completed'),
-                } for t in todos]
+                } for t in requests.get(url + "users/{}/todos"
+                                        .format(u.get('id'))).json()]
             for u in users}, jsonfile)
