@@ -6,10 +6,9 @@
 import requests
 from sys import argv
 
-url = 'https://jsonplaceholder.typicode.com/'
-
 
 if __name__ == "__main__":
+    url = 'https://jsonplaceholder.typicode.com/'
     uurl = '{}users/{}'.format(url, argv[1])
     user = requests.get(uurl).json()
     todos = requests.get(uurl + '/todos').json()
