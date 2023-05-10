@@ -7,12 +7,10 @@ after = None
 counts = {}
 
 
-def count_words(subreddit, word_list):
+def count_words(subreddit, word_list, counts=None, after=None):
     """Prints sorted counts of given words
     found in hot posts of a given subreddit.
     """
-    global after
-    global counts
 
     url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
 
@@ -24,7 +22,13 @@ def count_words(subreddit, word_list):
         "User-Agent": "linux:0x16.api.advanced:v1.0 (by /u/Various_Ad_2057)"
         }
 
-    if after:
+    if counts is None:
+        counts = {}
+
+    if after is None:
+        # convert word_list to lowercase and remove duplicates
+        word_list = list(set([word.lower() for word in word_list]))
+    else:
         params['after'] = after
 
     response = requests.get(url, headers=headers,
@@ -41,17 +45,12 @@ def count_words(subreddit, word_list):
     for title in titles:
         for word in title.split():
             if word.lower() in word_list:
-                if word.lower() not in counts:
-                    counts[word.lower()] = 0
-                counts[word.lower()] += 1
+                key = word.lower()
+                counts[key] = counts.get(key, 0) + 1
 
     if after is None:
-        results = []
-        for word in word_list:
-            if word.lower() in counts:
-                results.append((word.lower(), counts[word.lower()]))
-        results.sort(key=lambda x: (-x[1], x[0]))
-        for result in results:
-            print("{}: {}".format(result[0], result[1]))
+        sorted_counts = sorted(counts.items(), key=lambda x: (-x[1], x[0]))
+        for word, count in sorted_counts:
+            print("{}: {}".format(word, count))
     else:
-        return count_words(subreddit, word_list)
+        return count_words(subreddit, word_list, counts, after)
