@@ -3,9 +3,6 @@
 prints a sorted count of given keywords from title of all hot articles"""
 import requests
 
-after = None
-counts = {}
-
 
 def count_words(subreddit, word_list, counts=None, after=None):
     """Prints sorted counts of given words
