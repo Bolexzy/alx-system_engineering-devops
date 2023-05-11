@@ -1,0 +1,18 @@
+# curl -X GET "https://api.datadoghq.com/api/v1/dashboard" -H "Accept: application/json" -H "DD-API-KEY: ${DD_API_KEY}" -H "DD-APPLICATION-KEY: ${DD_APP_KEY}"
+
+{
+    "dashboards": [
+        {
+            "id": "idj-gpw-c5j",
+            "title":"Airbnb- system metrics",
+            "description":null,
+            "layout_type":"ordered",
+            "url":"/dashboard/idj-gpw-c5j/airbnb--system-metrics",
+            "is_read_only":false,
+            "created_at":"2023-05-11T01:18:09.700294+00:00",
+            "modified_at":"2023-05-11T01:26:30.974395+00:00",
+            "author_handle":"blexzyy@gmail.com",
+            "deleted_at":null
+        }
+    ]
+}
